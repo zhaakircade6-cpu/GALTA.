@@ -1,1590 +1,392 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>GALTA Travel & Logistic Agency</title>
-
-<meta name="description" content="GALTA Travel & Logistic Agency - Flight Booking, Visa Processing, Immigration Consultation, Hotel Reservations and Logistics Services.">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-:root{
-    --blue:#063b70;
-    --dark:#031d36;
-    --gold:#e79a18;
-    --green:#25D366;
-    --light:#f7f9fc;
-    --text:#172033;
-    --muted:#667085;
-    --white:#ffffff;
-}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    color:var(--text);
-    background:var(--light);
-    line-height:1.6;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-img{
-    width:100%;
-    display:block;
-}
-
-.container{
-    width:92%;
-    max-width:1200px;
-    margin:auto;
-}
-
-/* TOP BAR */
-
-.topbar{
-    background:var(--dark);
-    color:white;
-    font-size:14px;
-}
-
-.topbar-inner{
-    min-height:40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-}
-
-.topbar-left,
-.topbar-right{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.topbar a:hover{
-    color:var(--gold);
-}
-
-/* HEADER */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:white;
-    box-shadow:0 2px 15px rgba(0,0,0,.08);
-}
-
-.navbar{
-    min-height:75px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-
-.logo{
-    font-size:23px;
-    font-weight:900;
-    color:var(--blue);
-}
-
-.logo span{
-    color:var(--gold);
-}
-
-nav{
-    display:flex;
-    align-items:center;
-    gap:18px;
-}
-
-nav a{
-    font-size:14px;
-    font-weight:700;
-    color:var(--text);
-    transition:.3s;
-}
-
-nav a:hover{
-    color:var(--gold);
-}
-
-.menu-btn{
-    display:none;
-    border:0;
-    background:var(--blue);
-    color:white;
-    font-size:24px;
-    padding:7px 12px;
-    border-radius:7px;
-    cursor:pointer;
-}
-
-/* HERO */
-
-.hero{
-    min-height:680px;
-    display:flex;
-    align-items:center;
-    color:white;
-
-    background:
-    linear-gradient(rgba(3,29,54,.72),rgba(3,29,54,.72)),
-    url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2000&q=85")
-    center/cover no-repeat;
-}
-
-.hero-content{
-    max-width:760px;
-    padding:100px 0;
-}
-
-.badge{
-    display:inline-block;
-    background:rgba(255,255,255,.15);
-    border:1px solid rgba(255,255,255,.3);
-    padding:8px 15px;
-    border-radius:30px;
-    margin-bottom:20px;
-    font-weight:bold;
-}
-
-.hero h1{
-    font-size:58px;
-    line-height:1.08;
-    margin-bottom:20px;
-}
-
-.hero h1 span{
-    color:#f5ae2e;
-}
-
-.hero p{
-    font-size:19px;
-    max-width:700px;
-    margin-bottom:30px;
-}
-
-.btn-group{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-}
-
-.btn{
-    display:inline-block;
-    padding:13px 21px;
-    border-radius:8px;
-    border:0;
-    cursor:pointer;
-    font-weight:700;
-    font-size:15px;
-    transition:.3s;
-}
-
-.btn-primary{
-    background:var(--gold);
-    color:white;
-}
-
-.btn-primary:hover{
-    background:#c77e08;
-    transform:translateY(-2px);
-}
-
-.btn-light{
-    background:white;
-    color:var(--blue);
-}
-
-.btn-light:hover{
-    background:#eef3f8;
-    transform:translateY(-2px);
-}
-
-.btn-whatsapp{
-    background:var(--green);
-    color:white;
-}
-
-.btn-whatsapp:hover{
-    background:#1da851;
-}
-
-/* QUICK CARDS */
-
-.quick-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-    margin-top:-70px;
-    position:relative;
-    z-index:5;
-}
-
-.quick-card{
-    background:white;
-    padding:28px 20px;
-    text-align:center;
-    border-radius:14px;
-    box-shadow:0 10px 30px rgba(0,0,0,.12);
-}
-
-.quick-card .icon{
-    font-size:40px;
-    margin-bottom:10px;
-}
-
-.quick-card h3{
-    color:var(--blue);
-    margin-bottom:8px;
-}
-
-/* SECTIONS */
-
-section{
-    padding:85px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:45px;
-}
-
-.section-title h2{
-    font-size:38px;
-    color:var(--blue);
-    margin-bottom:10px;
-}
-
-.section-title p{
-    color:var(--muted);
-}
-
-/* ABOUT */
-
-.about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-}
-
-.about-image{
-    min-height:460px;
-    border-radius:18px;
-
-    background:
-    linear-gradient(rgba(3,29,54,.15),rgba(3,29,54,.15)),
-    url("https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1200&q=85")
-    center/cover no-repeat;
-}
-
-.about-text h2{
-    font-size:40px;
-    color:var(--blue);
-    margin-bottom:18px;
-}
-
-.about-text p{
-    color:#566174;
-    margin-bottom:15px;
-}
-
-/* SERVICES */
-
-.services{
-    background:#eef5fb;
-}
-
-.services-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
-}
-
-.service-card{
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 6px 25px rgba(0,0,0,.07);
-    border-top:4px solid var(--gold);
-    transition:.3s;
-}
-
-.service-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 12px 30px rgba(0,0,0,.12);
-}
-
-.service-card .icon{
-    font-size:42px;
-    margin-bottom:12px;
-}
-
-.service-card h3{
-    color:var(--blue);
-    margin-bottom:10px;
-}
-
-.service-card p{
-    color:var(--muted);
-    margin-bottom:18px;
-}
-
-/* COUNTRIES */
-
-.country-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:16px;
-}
-
-.country-card{
-    background:white;
-    padding:22px 12px;
-    text-align:center;
-    border-radius:12px;
-    cursor:pointer;
-    font-weight:700;
-    color:var(--blue);
-    box-shadow:0 4px 15px rgba(0,0,0,.06);
-    transition:.3s;
-}
-
-.country-card:hover{
-    transform:translateY(-5px);
-    background:var(--blue);
-    color:white;
-}
-
-/* FORMS */
-
-.form-section{
-    background:white;
-}
-
-.form-box{
-    max-width:900px;
-    margin:auto;
-    background:#f7f9fc;
-    padding:35px;
-    border-radius:16px;
-    box-shadow:0 8px 30px rgba(0,0,0,.08);
-}
-
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-}
-
-.form-group{
-    display:flex;
-    flex-direction:column;
-}
-
-.form-group.full{
-    grid-column:1/-1;
-}
-
-.form-group label{
-    font-weight:700;
-    margin-bottom:7px;
-    color:#344054;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-    padding:13px;
-    border:1px solid #d0d5dd;
-    border-radius:8px;
-    background:white;
-    font-size:15px;
-    outline:none;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-    border-color:var(--blue);
-    box-shadow:0 0 0 3px rgba(6,59,112,.08);
-}
-
-.form-group textarea{
-    min-height:120px;
-    resize:vertical;
-}
-
-.form-actions{
-    margin-top:22px;
-}
-
-/* GALLERY */
-
-.gallery{
-    background:#eef5fb;
-}
-
-.gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.gallery-item{
-    height:260px;
-    overflow:hidden;
-    border-radius:13px;
-}
-
-.gallery-item img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.4s;
-}
-
-.gallery-item:hover img{
-    transform:scale(1.08);
-}
-
-/* CONTACT */
-
-.contact{
-    background:var(--blue);
-    color:white;
-}
-
-.contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-}
-
-.contact h2{
-    font-size:40px;
-    margin-bottom:15px;
-}
-
-.contact p{
-    margin-bottom:13px;
-}
-
-.contact-card{
-    background:white;
-    color:var(--text);
-    padding:30px;
-    border-radius:15px;
-}
-
-.contact-card h3{
-    color:var(--blue);
-    margin-bottom:18px;
-}
-
-.whatsapp-list{
-    display:grid;
-    gap:10px;
-}
-
-.whatsapp-btn{
-    display:block;
-    background:var(--green);
-    color:white;
-    padding:12px 16px;
-    border-radius:8px;
-    text-align:center;
-    font-weight:700;
-    transition:.3s;
-}
-
-.whatsapp-btn:hover{
-    background:#1da851;
-}
-
-/* FOOTER */
-
-footer{
-    background:var(--dark);
-    color:white;
-    text-align:center;
-    padding:28px 15px;
-}
-
-footer p{
-    margin:5px;
-}
-
-/* FLOATING WHATSAPP */
-
-.whatsapp-float{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    background:var(--green);
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:29px;
-    z-index:2000;
-    box-shadow:0 5px 20px rgba(0,0,0,.25);
-}
-
-/* MODAL */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
-    z-index:3000;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.modal-content{
-    background:white;
-    width:100%;
-    max-width:500px;
-    border-radius:15px;
-    padding:30px;
-    position:relative;
-}
-
-.close{
-    position:absolute;
-    right:18px;
-    top:10px;
-    font-size:30px;
-    cursor:pointer;
-    color:#667085;
-}
-
-.modal-content h3{
-    color:var(--blue);
-    margin-bottom:12px;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1000px){
-
-    .menu-btn{
-        display:block;
-    }
-
-    nav{
-        display:none;
-        position:absolute;
-        top:75px;
-        left:0;
-        width:100%;
-        background:white;
-        padding:20px;
-        flex-direction:column;
-        box-shadow:0 8px 20px rgba(0,0,0,.1);
-    }
-
-    nav.active{
-        display:flex;
-    }
-
-    .quick-grid{
-        grid-template-columns:repeat(2,1fr);
-        margin-top:-45px;
-    }
-
-    .country-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .about-grid,
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
-
-    .services-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:650px){
-
-    .topbar-inner{
-        justify-content:center;
-        padding:8px 0;
-    }
-
-    .topbar-left,
-    .topbar-right{
-        justify-content:center;
-        gap:10px;
-    }
-
-    .hero{
-        min-height:620px;
-    }
-
-    .hero h1{
-        font-size:38px;
-    }
-
-    .hero p{
-        font-size:17px;
-    }
-
-    .quick-grid{
-        grid-template-columns:1fr;
-        margin-top:-25px;
-    }
-
-    .services-grid,
-    .gallery-grid,
-    .country-grid{
-        grid-template-columns:1fr;
-    }
-
-    .form-grid{
-        grid-template-columns:1fr;
-    }
-
-    .form-group.full{
-        grid-column:auto;
-    }
-
-    .form-box{
-        padding:22px;
-    }
-
-    .section-title h2,
-    .about-text h2,
-    .contact h2{
-        font-size:30px;
-    }
-
-    .btn-group{
-        flex-direction:column;
-    }
-
-    .btn-group .btn{
-        text-align:center;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<!-- TOP BAR -->
-<div class="topbar">
-<div class="container topbar-inner">
-
-<div class="topbar-left">
-<a href="tel:+252907782828">📞 +252 907 782 828</a>
-<a href="mailto:galtaairtr@gmail.com">📧 galtaairtr@gmail.com</a>
-</div>
-
-<div class="topbar-right">
-<span>🕐 Open 24 Hours — Day & Night</span>
-</div>
-
-</div>
-</div>
-
-
-<!-- HEADER -->
-<header>
-
-<div class="container navbar">
-
-<a href="#home" class="logo">
-GALTA <span>TRAVEL</span>
-</a>
-
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-<nav id="mainNav">
-<a href="#home" onclick="closeMenu()">Home</a>
-<a href="#about" onclick="closeMenu()">About Us</a>
-<a href="#services" onclick="closeMenu()">Services</a>
-<a href="#countries" onclick="closeMenu()">Countries</a>
-<a href="#visa" onclick="closeMenu()">Visa Application</a>
-<a href="#flight" onclick="closeMenu()">Flight Booking</a>
-<a href="#gallery" onclick="closeMenu()">Gallery</a>
-<a href="#contact" onclick="closeMenu()">Contact</a>
-</nav>
-
-</div>
-
-</header>
-
-
-<!-- HERO -->
-<section class="hero" id="home">
-
-<div class="container hero-content">
-
-<div class="badge">
-✈️ GALTA TRAVEL & LOGISTIC AGENCY
-</div>
-
-<h1>
-Your Journey Starts With
-<span>GALTA</span>
-</h1>
-
-<p>
-GALTA Travel & Logistic Agency provides reliable travel,
-visa processing, flight booking, hotel reservation,
-immigration consultation and logistics services.
-</p>
-
-<div class="btn-group">
-
-<a href="#visa" class="btn btn-primary">
-🛂 Apply for Visa
-</a>
-
-<a href="#flight" class="btn btn-light">
-✈️ Book Flight
-</a>
-
-<a href="#contact" class="btn btn-light">
-📞 Contact Us
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- QUICK SERVICES -->
-
-<div class="container">
-
-<div class="quick-grid">
-
-<div class="quick-card">
-<div class="icon">✈️</div>
-<h3>Flight Booking</h3>
-<p>Book your flight with our travel team.</p>
-<a href="#flight" class="btn btn-primary">Book Now</a>
-</div>
-
-<div class="quick-card">
-<div class="icon">🛂</div>
-<h3>Visa Processing</h3>
-<p>Get assistance with your visa application.</p>
-<a href="#visa" class="btn btn-primary">Apply Now</a>
-</div>
-
-<div class="quick-card">
-<div class="icon">🌍</div>
-<h3>Travel Countries</h3>
-<p>Choose your destination and contact us.</p>
-<a href="#countries" class="btn btn-primary">Explore</a>
-</div>
-
-<div class="quick-card">
-<div class="icon">📱</div>
-<h3>WhatsApp</h3>
-<p>Contact GALTA directly on WhatsApp.</p>
-<a href="#contact" class="btn btn-primary">Contact</a>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<div class="container about-grid">
-
-<div class="about-image"></div>
-
-<div class="about-text">
-
-<h2>About GALTA</h2>
-
-<p>
-GALTA Travel & Logistic Agency is dedicated to providing
-professional travel and logistics services to individuals,
-families and businesses.
-</p>
-
-<p>
-Our services include flight ticket booking, visa processing,
-immigration consultation, hotel reservations, document
-assistance and logistics support.
-</p>
-
-<p>
-Our mission is to make your travel experience easier,
-safer and more convenient.
-</p>
-
-<a href="#services" class="btn btn-primary">
-Explore Our Services
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- SERVICES -->
-
-<section id="services" class="services">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>Our Services</h2>
-
-<p>
-Professional travel and logistics solutions.
-</p>
-
-</div>
-
-<div class="services-grid">
-
-<div class="service-card">
-<div class="icon">✈️</div>
-<h3>Flight Ticket Booking</h3>
-<p>We help you find and arrange your flight tickets.</p>
-<a href="#flight" class="btn btn-primary">Book Flight</a>
-</div>
-
-<div class="service-card">
-<div class="icon">🛂</div>
-<h3>Visa Processing</h3>
-<p>Get support with your visa application process.</p>
-<a href="#visa" class="btn btn-primary">Apply Visa</a>
-</div>
-
-<div class="service-card">
-<div class="icon">🌍</div>
-<h3>Immigration Consultation</h3>
-<p>Professional guidance for your travel and immigration needs.</p>
-<a href="#contact" class="btn btn-primary">Contact Us</a>
-</div>
-
-<div class="service-card">
-<div class="icon">🏨</div>
-<h3>Hotel Reservations</h3>
-<p>Find suitable accommodation for your journey.</p>
-<a href="#contact" class="btn btn-primary">Contact Us</a>
-</div>
-
-<div class="service-card">
-<div class="icon">📄</div>
-<h3>Document Assistance</h3>
-<p>Get help preparing your travel documents.</p>
-<a href="#contact" class="btn btn-primary">Contact Us</a>
-</div>
-
-<div class="service-card">
-<div class="icon">🚚</div>
-<h3>Logistics Services</h3>
-<p>Reliable logistics support for your needs.</p>
-<a href="#contact" class="btn btn-primary">Contact Us</a>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- COUNTRIES -->
-
-<section id="countries">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>Choose Your Destination</h2>
-
-<p>
-Select a country to learn more and start your visa application.
-</p>
-
-</div>
-
-<div class="country-grid">
-
-<div class="country-card" onclick="selectCountry('Kenya')">🇰🇪 Kenya</div>
-
-<div class="country-card" onclick="selectCountry('Ethiopia')">🇪🇹 Ethiopia</div>
-
-<div class="country-card" onclick="selectCountry('Turkey')">🇹🇷 Turkey</div>
-
-<div class="country-card" onclick="selectCountry('United Arab Emirates')">🇦🇪 UAE</div>
-
-<div class="country-card" onclick="selectCountry('Saudi Arabia')">🇸🇦 Saudi Arabia</div>
-
-<div class="country-card" onclick="selectCountry('Qatar')">🇶🇦 Qatar</div>
-
-<div class="country-card" onclick="selectCountry('India')">🇮🇳 India</div>
-
-<div class="country-card" onclick="selectCountry('Egypt')">🇪🇬 Egypt</div>
-
-<div class="country-card" onclick="selectCountry('China')">🇨🇳 China</div>
-
-<div class="country-card" onclick="selectCountry('Other')">🌍 Other</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- VISA APPLICATION -->
-
-<section id="visa" class="form-section">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>Visa Application</h2>
-
-<p>
-Fill in your information and send your application directly to GALTA WhatsApp.
-</p>
-
-</div>
-
-<div class="form-box">
-
-<form id="visaForm">
-
-<div class="form-grid">
-
-<div class="form-group">
-<label>Full Name *</label>
-<input type="text" id="visaName" required>
-</div>
-
-<div class="form-group">
-<label>Passport Number *</label>
-<input type="text" id="passport" required>
-</div>
-
-<div class="form-group">
-<label>Nationality *</label>
-<input type="text" id="nationality" required>
-</div>
-
-<div class="form-group">
-
-<label>Country Applying For *</label>
-
-<select id="visaCountry" required>
-
-<option value="">Select Country</option>
-<option>Kenya</option>
-<option>Ethiopia</option>
-<option>Turkey</option>
-<option>United Arab Emirates</option>
-<option>Saudi Arabia</option>
-<option>Qatar</option>
-<option>India</option>
-<option>Egypt</option>
-<option>China</option>
-<option>Other</option>
-
-</select>
-
-</div>
-
-<div class="form-group">
-<label>Phone Number *</label>
-<input type="tel" id="visaPhone" required>
-</div>
-
-<div class="form-group">
-<label>Email</label>
-<input type="email" id="visaEmail">
-</div>
-
-<div class="form-group full">
-
-<label>Additional Information</label>
-
-<textarea id="visaMessage"
-placeholder="Write any additional information..."></textarea>
-
-</div>
-
-<div class="form-group full">
-
-<label>Choose WhatsApp Number *</label>
-
-<select id="visaWhatsapp" required>
-
-<option value="252907782828">+252 907 782 828</option>
-
-<option value="252904029631">+252 904 029 631</option>
-
-<option value="252906116752">+252 906 116 752</option>
-
-<option value="252906797914">+252 906 797 914</option>
-
-</select>
-
-</div>
-
-</div>
-
-<div class="form-actions">
-
-<button type="submit" class="btn btn-whatsapp">
-📲 Send Visa Application on WhatsApp
-</button>
-
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FLIGHT BOOKING -->
-
-<section id="flight" class="form-section">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>Flight Booking</h2>
-
-<p>
-Send your flight booking request directly to GALTA.
-</p>
-
-</div>
-
-<div class="form-box">
-
-<form id="flightForm">
-
-<div class="form-grid">
-
-<div class="form-group">
-<label>Departure *</label>
-<input type="text" id="departure" placeholder="Example: Mogadishu" required>
-</div>
-
-<div class="form-group">
-<label>Destination *</label>
-<input type="text" id="destination" placeholder="Example: Istanbul" required>
-</div>
-
-<div class="form-group">
-<label>Departure Date *</label>
-<input type="date" id="departureDate" required>
-</div>
-
-<div class="form-group">
-<label>Return Date</label>
-<input type="date" id="returnDate">
-</div>
-
-<div class="form-group">
-<label>Number of Passengers *</label>
-<input type="number" id="passengers" min="1" value="1" required>
-</div>
-
-<div class="form-group">
-
-<label>Cabin Class</label>
-
-<select id="cabin">
-
-<option>Economy</option>
-<option>Premium Economy</option>
-<option>Business Class</option>
-<option>First Class</option>
-
-</select>
-
-</div>
-
-<div class="form-group">
-
-<label>Choose WhatsApp Number</label>
-
-<select id="flightWhatsapp">
-
-<option value="252907782828">+252 907 782 828</option>
-
-<option value="252904029631">+252 904 029 631</option>
-
-<option value="252906116752">+252 906 116 752</option>
-
-<option value="252906797914">+252 906 797 914</option>
-
-</select>
-
-</div>
-
-<div class="form-group">
-
-<label>Your Phone *</label>
-
-<input type="tel" id="flightPhone" required>
-
-</div>
-
-</div>
-
-<div class="form-actions">
-
-<button type="submit" class="btn btn-whatsapp">
-📲 Send Flight Request on WhatsApp
-</button>
-
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- GALLERY -->
-
-<section id="gallery" class="gallery">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>Gallery</h2>
-
-<p>
-Travel with confidence and discover new destinations.
-</p>
-
-</div>
-
-<div class="gallery-grid">
-
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=1000&q=85" alt="Airplane">
-</div>
-
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85" alt="Beach Destination">
-</div>
-
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1000&q=85" alt="Travel Bags">
-</div>
-
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1000&q=85" alt="Travel Friends">
-</div>
-
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1000&q=85" alt="Destination">
-</div>
-
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1000&q=85" alt="Tourism">
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact" class="contact">
-
-<div class="container contact-grid">
-
-<div>
-
-<h2>Contact GALTA</h2>
-
-<p>
-We are available to help you with your travel,
-visa and logistics needs.
-</p>
-
-<p>
-📍 JUBBA AIRWAYS OFFICE, GLK Aaga Daraawiishta,
-Galkaio, Somalia
-</p>
-
-<p>
-📧 galtaairtr@gmail.com
-</p>
-
-<p>
-🕐 Open Every Time — Day & Night
-</p>
-
-</div>
-
-<div class="contact-card">
-
-<h3>WhatsApp & Contact Numbers</h3>
-
-<div class="whatsapp-list">
-
-<a class="whatsapp-btn"
-href="https://wa.me/252907782828"
-target="_blank">
-🟢 WhatsApp: +252 907 782 828
-</a>
-
-<a class="whatsapp-btn"
-href="https://wa.me/252904029631"
-target="_blank">
-🟢 WhatsApp: +252 904 029 631
-</a>
-
-<a class="whatsapp-btn"
-href="https://wa.me/252906116752"
-target="_blank">
-🟢 WhatsApp: +252 906 116 752
-</a>
-
-<a class="whatsapp-btn"
-href="https://wa.me/252906797914"
-target="_blank">
-🟢 WhatsApp: +252 906 797 914
-</a>
-
-</div>
-
-<br>
-
-<a
-href="mailto:galtaairtr@gmail.com"
-class="btn btn-primary">
-📧 Email GALTA
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<p>
-© 2026 GALTA Travel & Logistic Agency. All Rights Reserved.
-</p>
-
-<p>
-Travel With Confidence — Your Journey, Our Responsibility.
-</p>
-
-</footer>
-
-
-<!-- FLOATING WHATSAPP -->
-
-<a
-href="https://wa.me/252907782828"
-target="_blank"
-class="whatsapp-float"
-title="Chat with GALTA">
-💬
-</a>
-
-
-<!-- COUNTRY MODAL -->
-
-<div class="modal" id="countryModal">
-
-<div class="modal-content">
-
-<span class="close" onclick="closeModal()">×</span>
-
-<h3 id="countryTitle">Country</h3>
-
-<p id="countryText"></p>
-
-<br>
-
-<a
-href="#visa"
-onclick="closeModal()"
-class="btn btn-primary">
-Apply for Visa
-</a>
-
-</div>
-
-</div>
-
-
-<script>
-
-/* MOBILE MENU */
-
-function toggleMenu(){
-
-document
-.getElementById("mainNav")
-.classList
-.toggle("active");
-
-}
-
-function closeMenu(){
-
-document
-.getElementById("mainNav")
-.classList
-.remove("active");
-
-}
-
-
-/* COUNTRY SELECTOR */
-
-function selectCountry(country){
-
-document
-.getElementById("countryTitle")
-.innerText = country;
-
-document
-.getElementById("countryText")
-.innerText =
-"You selected " + country +
-". You can now continue with your visa application or contact GALTA Travel & Logistic Agency for assistance.";
-
-document
-.getElementById("visaCountry")
-.value = country;
-
-document
-.getElementById("countryModal")
-.style.display = "flex";
-
-}
-
-
-/* CLOSE MODAL */
-
-function closeModal(){
-
-document
-.getElementById("countryModal")
-.style.display = "none";
-
-}
-
-
-/* CLOSE MODAL OUTSIDE */
-
-window.onclick = function(event){
-
-let modal =
-document.getElementById("countryModal");
-
-if(event.target === modal){
-
-modal.style.display = "none";
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>GALTA Travel & Logistic Agency | Galkayo Somalia</title>
+<meta name="description" content="GALTA Travel & Logistic Agency in Galkayo, Somalia. Flight booking, visa processing, immigration consultation, hotel reservations, document assistance and logistics services.">
+<meta name="keywords" content="GALTA Travel Logistic, Galkayo travel agency, Somalia visa, flight booking, Jubba Airways, travel logistics">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#063b70">
+<meta property="og:title" content="GALTA Travel & Logistic Agency">
+<meta property="og:description" content="Your trusted travel partner in Galkayo, Somalia.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zhaakircade6-cpu.github.io/GALTA.WEB/">
+<link rel="canonical" href="https://zhaakircade6-cpu.github.io/GALTA.WEB/">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"TravelAgency",
+  "name":"GALTA Travel & Logistic Agency",
+  "url":"https://zhaakircade6-cpu.github.io/GALTA.WEB/",
+  "email":"galtaairtr@gmail.com",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"JUBBA AIRWAYS OFFICE, GLK Aaga Daraawiishta",
+    "addressLocality":"Galkayo",
+    "addressCountry":"Somalia"
+  },
+  "openingHours":"Mo-Su 00:00-23:59"
 }
-
-};
-
-
-/* VISA WHATSAPP */
-
-document
-.getElementById("visaForm")
-.addEventListener("submit",function(e){
-
-e.preventDefault();
-
-let name =
-document.getElementById("visaName").value;
-
-let passport =
-document.getElementById("passport").value;
-
-let nationality =
-document.getElementById("nationality").value;
-
-let country =
-document.getElementById("visaCountry").value;
-
-let phone =
-document.getElementById("visaPhone").value;
-
-let email =
-document.getElementById("visaEmail").value;
-
-let message =
-document.getElementById("visaMessage").value;
-
-let whatsapp =
-document.getElementById("visaWhatsapp").value;
-
-let text =
-"Hello GALTA Travel & Logistic Agency,\n\n" +
-
-"VISA APPLICATION\n\n" +
-
-"Full Name: " + name + "\n" +
-
-"Passport Number: " + passport + "\n" +
-
-"Nationality: " + nationality + "\n" +
-
-"Applying For: " + country + "\n" +
-
-"Phone: " + phone + "\n" +
-
-"Email: " + email + "\n" +
-
-"Additional Information: " + message;
-
-window.open(
-"https://wa.me/" +
-whatsapp +
-"?text=" +
-encodeURIComponent(text),
-"_blank"
-);
-
-});
-
-
-/* FLIGHT WHATSAPP */
-
-document
-.getElementById("flightForm")
-.addEventListener("submit",function(e){
-
-e.preventDefault();
-
-let departure =
-document.getElementById("departure").value;
-
-let destination =
-document.getElementById("destination").value;
-
-let departureDate =
-document.getElementById("departureDate").value;
-
-let returnDate =
-document.getElementById("returnDate").value;
-
-let passengers =
-document.getElementById("passengers").value;
-
-let cabin =
-document.getElementById("cabin").value;
-
-let phone =
-document.getElementById("flightPhone").value;
-
-let whatsapp =
-document.getElementById("flightWhatsapp").value;
-
-let text =
-"Hello GALTA Travel & Logistic Agency,\n\n" +
-
-"FLIGHT BOOKING REQUEST\n\n" +
-
-"Departure: " + departure + "\n" +
-
-"Destination: " + destination + "\n" +
-
-"Departure Date: " + departureDate + "\n" +
-
-"Return Date: " + returnDate + "\n" +
-
-"Passengers: " + passengers + "\n" +
-
-"Cabin Class: " + cabin + "\n" +
-
-"Phone: " + phone;
-
-window.open(
-"https://wa.me/" +
-whatsapp +
-"?text=" +
-encodeURIComponent(text),
-"_blank"
-);
-
-});
-
-
-/* SET MINIMUM RETURN DATE */
-
-document
-.getElementById("departureDate")
-.addEventListener("change",function(){
-
-document
-.getElementById("returnDate")
-.min = this.value;
-
-});
-
-
 </script>
 
+<style>
+:root{--navy:#063b70;--navy2:#032b52;--gold:#f2b51d;--green:#25d366;--text:#172033;--muted:#667085;--bg:#f5f8fc}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg);line-height:1.55}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+.container{width:92%;max-width:1200px;margin:auto}
+.topbar{background:var(--navy2);color:#fff;font-size:13px}
+.topbar .container{min-height:40px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.top-item{display:flex;gap:7px;align-items:center}.gold{color:var(--gold)}
+header{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 2px 14px #00000016}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--navy);font-weight:900;font-size:28px}
+.brand-mark{width:52px;height:52px;border:7px solid var(--navy);border-right-color:var(--gold);border-radius:50%;display:grid;place-items:center;font-size:22px}
+.brand small{display:block;font-size:11px;letter-spacing:.6px;color:#333}
+nav{display:flex;gap:18px;align-items:center}nav a{font-weight:700;font-size:14px}nav a:hover{color:var(--gold)}
+.menu{display:none;border:0;background:var(--navy);color:#fff;border-radius:8px;padding:9px 12px;font-size:22px}
+
+.hero{min-height:640px;position:relative;display:flex;align-items:center;color:#fff;overflow:hidden;background:#0a355a}
+.hero::before{content:"";position:absolute;inset:0;background-image:url("https://assets.wego.com/image/upload/v1699002115/flights/airlines_hero/JZ_1.png");background-size:cover;background-position:center right;transform:scale(1.03)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,35,68,.90) 0%,rgba(3,35,68,.73) 40%,rgba(3,35,68,.18) 75%,rgba(3,35,68,.08) 100%)}
+.hero .container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.hero-copy{max-width:680px;padding:80px 0}
+.kicker{color:var(--gold);font-weight:900;letter-spacing:1px;text-transform:uppercase}
+.hero h1{font-size:58px;line-height:1.05;margin:12px 0 20px}.hero h1 span{color:var(--gold)}
+.hero p{font-size:19px;max-width:650px;margin-bottom:26px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{border:0;border-radius:8px;padding:13px 20px;font-weight:800;cursor:pointer;display:inline-block}
+.primary{background:var(--gold);color:#172033}.primary:hover{filter:brightness(.93)}
+.light{background:#fff;color:var(--navy)}.outline{background:#ffffff14;color:#fff;border:1px solid #fff}
+.hero-contact{width:290px;background:#063b70e8;padding:22px;border-radius:12px;box-shadow:0 10px 35px #0005}
+.hero-contact h3{text-align:center;color:var(--gold);margin-bottom:14px}
+.wa{display:block;background:var(--green);color:#fff;border-radius:8px;padding:11px;margin:9px 0;font-weight:800;text-align:center}
+
+section{padding:72px 0}.title{text-align:center;margin-bottom:38px}.title .eyebrow{color:var(--gold);font-weight:900;text-transform:uppercase}.title h2{font-size:38px;color:var(--navy);margin:4px 0 7px}.title p{color:var(--muted)}
+.quick{margin-top:-55px;position:relative;z-index:4;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#fff;border-radius:13px;padding:25px;box-shadow:0 7px 25px #00000010;border:1px solid #e3e8ef}
+.quick .card{text-align:center}.icon{font-size:38px;margin-bottom:8px}.card h3{color:var(--navy);margin-bottom:7px}.card p{color:var(--muted);font-size:14px;margin-bottom:14px}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.about-img{min-height:420px;border-radius:16px;background:linear-gradient(#063b7020,#063b7020),url("https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1200&q=85") center/cover}
+.about h2{font-size:38px;color:var(--navy);margin-bottom:15px}.about p{color:#566174;margin-bottom:14px}
+
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service{background:#fff;border-radius:14px;padding:28px;border-top:4px solid var(--gold);box-shadow:0 6px 24px #0000000d}.service .icon{font-size:42px}.service p{color:var(--muted);margin:8px 0 16px}
+
+.countries{background:#eef5fb}
+.country-search{max-width:720px;margin:0 auto 20px;position:relative}
+.country-search input{width:100%;padding:15px 17px;border:2px solid #d8e0ea;border-radius:10px;outline:0;background:#fff}
+.country-search input:focus{border-color:var(--navy)}
+.results{display:none;max-width:720px;margin:auto;background:#fff;border:1px solid #d8e0ea;border-radius:10px;max-height:280px;overflow:auto;box-shadow:0 8px 25px #00000012}
+.results.show{display:block}.result{padding:12px 15px;cursor:pointer;border-bottom:1px solid #eef1f5}.result:hover{background:#f0f6fb;color:var(--navy);font-weight:700}
+.selected{max-width:720px;margin:12px auto 0;color:var(--navy);font-weight:800;text-align:center;min-height:25px}
+
+.forms{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.form-box{background:#fff;border-radius:14px;box-shadow:0 7px 25px #0000000d;overflow:hidden;border:1px solid #dfe6ee}
+.form-head{background:var(--navy);color:#fff;padding:16px 20px;font-size:20px;font-weight:900}.form-body{padding:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:6px}.full{grid-column:1/-1}.field label{font-weight:800;font-size:13px}.field input,.field select,.field textarea{padding:12px;border:1px solid #cfd7e2;border-radius:8px;outline:0;background:#fff}.field textarea{min-height:95px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--navy)}
+.form-actions{margin-top:18px}.form-actions .btn{width:100%}
+.note{font-size:12px;color:var(--muted);margin-top:8px}
+
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.gallery img{width:100%;height:240px;object-fit:cover;border-radius:12px;display:block}
+
+.contact{background:var(--navy);color:#fff}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}.contact h2{font-size:38px;margin-bottom:12px}.contact p{margin:10px 0}.contact-box{background:#fff;color:var(--text);padding:25px;border-radius:14px}.contact-box h3{color:var(--navy);margin-bottom:10px}
+
+footer{background:#031d36;color:#fff;padding:32px 0}.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1.2fr 1fr;gap:25px}.footer-grid h3{color:var(--gold);margin-bottom:9px}.footer-grid p,.footer-grid a{font-size:13px;display:block;margin:4px 0}.copy{text-align:center;border-top:1px solid #ffffff20;margin-top:25px;padding-top:18px;font-size:12px}
+.float{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-size:28px;z-index:2000;box-shadow:0 5px 20px #0004}
+
+.toast{position:fixed;left:50%;bottom:25px;transform:translateX(-50%) translateY(20px);background:#172033;color:#fff;padding:12px 18px;border-radius:8px;opacity:0;pointer-events:none;transition:.3s;z-index:5000}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:1000px){nav{display:none}.menu{display:block}.nav.open nav{display:flex;position:absolute;top:76px;left:0;right:0;background:#fff;padding:18px;flex-direction:column;box-shadow:0 10px 20px #0001}.hero .container{flex-direction:column;align-items:flex-start}.hero-contact{display:none}.quick{grid-template-columns:repeat(2,1fr)}.services{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.topbar .container{justify-content:center}.brand{font-size:22px}.brand-mark{width:44px;height:44px}.hero{min-height:650px}.hero h1{font-size:40px}.hero p{font-size:16px}.quick,.services,.forms,.about,.contact-grid,.gallery{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.full{grid-column:auto}.footer-grid{grid-template-columns:1fr}.title h2,.about h2,.contact h2{font-size:30px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="top-item">📍 <b>JUBBA AIRWAYS OFFICE</b> • GLK Aaga Daraawiishta, Galkayo, Somalia</div>
+    <div class="top-item">✉️ galtaairtr@gmail.com</div>
+    <div class="top-item">🕐 Open 24 Hours — Day & Night</div>
+  </div>
+</div>
+
+<header>
+  <div class="container nav" id="nav">
+    <a class="brand" href="#home">
+      <div class="brand-mark">✈</div>
+      <div>GALTA <small>TRAVEL AND LOGISTIC</small></div>
+    </a>
+    <button class="menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav>
+      <a href="#home">Home</a><a href="#about">About Us</a><a href="#services">Services</a>
+      <a href="#visa">Visa Application</a><a href="#flight">Flight Booking</a>
+      <a href="#countries">Countries</a><a href="#gallery">Gallery</a><a href="#contact">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-copy">
+      <div class="kicker">Your Trusted Travel Partner</div>
+      <h1>GALTA <span>Travel & Logistic</span> Agency</h1>
+      <p>We make your travel easy, safe and reliable with flight booking, visa processing, hotel reservations, immigration consultation and logistics support.</p>
+      <div class="buttons">
+        <a class="btn primary" href="#visa">🛂 Apply for Visa</a>
+        <a class="btn light" href="#flight">✈️ Book Flight</a>
+        <a class="btn outline" href="#contact">📞 Contact Us</a>
+      </div>
+    </div>
+    <div class="hero-contact">
+      <h3>JUBBA AIRWAYS</h3>
+      <p style="text-align:center;margin-bottom:12px">Flight booking & travel assistance</p>
+      <a class="wa" href="https://wa.me/252907782828" target="_blank">WhatsApp +252 907 782 828</a>
+      <a class="wa" href="https://wa.me/252904029631" target="_blank">WhatsApp +252 904 029 631</a>
+      <a class="wa" href="https://wa.me/252906116752" target="_blank">WhatsApp +252 906 116 752</a>
+      <a class="wa" href="https://wa.me/252906797914" target="_blank">WhatsApp +252 906 797 914</a>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="quick">
+    <div class="card"><div class="icon">✈️</div><h3>Flight Booking</h3><p>Book domestic & international flights.</p><a class="btn primary" href="#flight">Book Now</a></div>
+    <div class="card"><div class="icon">🛂</div><h3>Visa Processing</h3><p>Fast and reliable visa assistance.</p><a class="btn primary" href="#visa">Apply Now</a></div>
+    <div class="card"><div class="icon">🌍</div><h3>Countries</h3><p>Search any destination worldwide.</p><a class="btn primary" href="#countries">Search</a></div>
+    <div class="card"><div class="icon">📱</div><h3>WhatsApp</h3><p>Contact GALTA directly.</p><a class="btn primary" href="#contact">Contact</a></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container about">
+    <div class="about-img"></div>
+    <div>
+      <div class="kicker">About Us</div>
+      <h2>About GALTA Travel & Logistic</h2>
+      <p>GALTA Travel & Logistic Agency is dedicated to providing professional travel and logistics services to individuals, families and businesses.</p>
+      <p>Our services include flight ticket booking, visa processing, immigration consultation, hotel reservations, document assistance and logistics support.</p>
+      <p>Our mission is to make your travel experience easier, safer and more convenient.</p>
+      <a class="btn primary" href="#services">Explore Our Services</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="title"><div class="eyebrow">Our Services</div><h2>What We Do</h2><p>Professional travel and logistics solutions.</p></div>
+    <div class="services">
+      <div class="service"><div class="icon">✈️</div><h3>Flight Ticket Booking</h3><p>Book domestic and international flights with ease.</p><a class="btn primary" href="#flight">Book Flight</a></div>
+      <div class="service"><div class="icon">🛂</div><h3>Visa Processing</h3><p>Fast and reliable visa application assistance.</p><a class="btn primary" href="#visa">Apply Visa</a></div>
+      <div class="service"><div class="icon">🌍</div><h3>Immigration Consultation</h3><p>Expert advice for immigration and travel processes.</p><a class="btn primary" href="#contact">Contact Us</a></div>
+      <div class="service"><div class="icon">🏨</div><h3>Hotel Reservations</h3><p>Find suitable accommodation for your journey.</p><a class="btn primary" href="#contact">Request Hotel</a></div>
+      <div class="service"><div class="icon">📄</div><h3>Document Assistance</h3><p>Help with travel documents and certificates.</p><a class="btn primary" href="#contact">Get Assistance</a></div>
+      <div class="service"><div class="icon">🚚</div><h3>Logistics Services</h3><p>Reliable cargo and logistics solutions.</p><a class="btn primary" href="#contact">Request Service</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="countries" id="countries">
+  <div class="container">
+    <div class="title"><div class="eyebrow">Destinations</div><h2>Search Countries</h2><p>Countries will appear only after you start typing.</p></div>
+    <div class="country-search">
+      <input id="countryInput" autocomplete="off" placeholder="🔎 Search country...">
+    </div>
+    <div id="countryResults" class="results"></div>
+    <div id="selectedCountry" class="selected"></div>
+  </div>
+</section>
+
+<section id="visa">
+  <div class="container">
+    <div class="title"><div class="eyebrow">Visa Application</div><h2>Apply for a Visa</h2><p>Complete the form and send the request directly to GALTA WhatsApp.</p></div>
+    <div class="form-box">
+      <div class="form-head">🛂 Apply For Visa</div>
+      <div class="form-body">
+        <form id="visaForm">
+          <div class="grid">
+            <div class="field"><label>Full Name</label><input id="vName" required placeholder="Enter your full name"></div>
+            <div class="field"><label>Passport Number</label><input id="vPassport" required placeholder="Passport Number"></div>
+            <div class="field"><label>Nationality</label><input id="vNationality" required placeholder="Nationality"></div>
+            <div class="field"><label>Country Applying For</label><input id="vCountry" required placeholder="Search/select a country"></div>
+            <div class="field"><label>Phone</label><input id="vPhone" type="tel" required placeholder="+252..."></div>
+            <div class="field"><label>Email</label><input id="vEmail" type="email" placeholder="Email address"></div>
+            <div class="field full"><label>Additional Information</label><textarea id="vMessage" placeholder="Write any additional information..."></textarea></div>
+            <div class="field full"><label>Choose WhatsApp Number</label><select id="vWhatsapp">
+              <option value="252907782828">+252 907 782 828</option>
+              <option value="252904029631">+252 904 029 631</option>
+              <option value="252906116752">+252 906 116 752</option>
+              <option value="252906797914">+252 906 797 914</option>
+            </select></div>
+          </div>
+          <div class="form-actions"><button class="btn primary" type="submit">📲 Send Visa Application on WhatsApp</button></div>
+          <div class="note">For security, passport/document files are not uploaded by this static page. After sending the request, send documents to the selected WhatsApp number.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="flight">
+  <div class="container">
+    <div class="title"><div class="eyebrow">Flight Booking</div><h2>Book Your Flight</h2><p>Send your flight request directly to GALTA.</p></div>
+    <div class="form-box">
+      <div class="form-head">✈️ Book Your Flight</div>
+      <div class="form-body">
+        <form id="flightForm">
+          <div class="grid">
+            <div class="field"><label>Departure</label><input id="fDeparture" required placeholder="Example: Galkayo"></div>
+            <div class="field"><label>Destination</label><input id="fDestination" required placeholder="Example: Nairobi"></div>
+            <div class="field"><label>Departure Date</label><input id="fDate" type="date" required></div>
+            <div class="field"><label>Return Date</label><input id="fReturn" type="date"></div>
+            <div class="field"><label>Number of Passengers</label><input id="fPassengers" type="number" min="1" value="1" required></div>
+            <div class="field"><label>Cabin Class</label><select id="fCabin"><option>Economy</option><option>Premium Economy</option><option>Business Class</option><option>First Class</option></select></div>
+            <div class="field"><label>Your Phone</label><input id="fPhone" type="tel" required placeholder="+252..."></div>
+            <div class="field"><label>Choose WhatsApp Number</label><select id="fWhatsapp">
+              <option value="252907782828">+252 907 782 828</option>
+              <option value="252904029631">+252 904 029 631</option>
+              <option value="252906116752">+252 906 116 752</option>
+              <option value="252906797914">+252 906 797 914</option>
+            </select></div>
+          </div>
+          <div class="form-actions"><button class="btn primary" type="submit">📲 Send Flight Request on WhatsApp</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="title"><div class="eyebrow">Gallery</div><h2>Travel With Confidence</h2><p>Explore travel moments and destinations.</p></div>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=1000&q=85" alt="Airplane">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85" alt="Beach destination">
+      <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1000&q=85" alt="Travel luggage">
+      <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1000&q=85" alt="Travelers">
+      <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1000&q=85" alt="Destination">
+      <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1000&q=85" alt="Tourism">
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="kicker">Contact Us</div>
+      <h2>Contact GALTA</h2>
+      <p>We are available to help you with your travel, visa and logistics needs.</p>
+      <p>📍 <b>JUBBA AIRWAYS OFFICE</b><br>GLK Aaga Daraawiishta, Galkayo, Somalia</p>
+      <p>✉️ galtaairtr@gmail.com</p>
+      <p>🕐 Open Every Time — Day & Night</p>
+    </div>
+    <div class="contact-box">
+      <h3>WhatsApp & Contact Numbers</h3>
+      <a class="wa" href="https://wa.me/252907782828" target="_blank">+252 907 782 828</a>
+      <a class="wa" href="https://wa.me/252904029631" target="_blank">+252 904 029 631</a>
+      <a class="wa" href="https://wa.me/252906116752" target="_blank">+252 906 116 752</a>
+      <a class="wa" href="https://wa.me/252906797914" target="_blank">+252 906 797 914</a>
+      <a class="btn primary" style="margin-top:10px" href="mailto:galtaairtr@gmail.com">📧 Email GALTA</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div><h3>GALTA</h3><p>Your Trusted Travel Partner.</p></div>
+    <div><h3>Quick Links</h3><a href="#home">Home</a><a href="#about">About Us</a><a href="#services">Services</a><a href="#visa">Visa Application</a><a href="#flight">Flight Booking</a></div>
+    <div><h3>Contact Info</h3><p>📍 JUBBA AIRWAYS OFFICE, GLK Aaga Daraawiishta, Galkayo, Somalia</p><p>✉️ galtaairtr@gmail.com</p><p>🕐 Open 24 Hours — Day & Night</p></div>
+    <div><h3>WhatsApp</h3><a href="https://wa.me/252907782828" target="_blank">+252 907 782 828</a><a href="https://wa.me/252904029631" target="_blank">+252 904 029 631</a><a href="https://wa.me/252906116752" target="_blank">+252 906 116 752</a><a href="https://wa.me/252906797914" target="_blank">+252 906 797 914</a></div>
+  </div>
+  <div class="container copy">© 2026 GALTA Travel & Logistic Agency. All Rights Reserved.</div>
+</footer>
+
+<a class="float" href="https://wa.me/252907782828" target="_blank" title="Chat with GALTA">💬</a>
+<div class="toast" id="toast"></div>
+
+<script>
+const countries = [
+"Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria",
+"Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia",
+"Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cabo Verde","Cambodia",
+"Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo","Costa Rica",
+"Côte d'Ivoire","Croatia","Cuba","Cyprus","Czechia","Democratic Republic of the Congo","Denmark","Djibouti","Dominica",
+"Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia",
+"Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea",
+"Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel",
+"Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon",
+"Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Madagascar","Malawi","Malaysia","Maldives",
+"Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia",
+"Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua",
+"Niger","Nigeria","North Korea","North Macedonia","Norway","Oman","Pakistan","Palau","Palestine","Panama",
+"Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda",
+"Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe",
+"Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands",
+"Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland",
+"Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia",
+"Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States",
+"Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"
+];
+
+const input=document.getElementById('countryInput');
+const results=document.getElementById('countryResults');
+const selected=document.getElementById('selectedCountry');
+const vCountry=document.getElementById('vCountry');
+
+function showResults(){
+  const q=input.value.trim().toLowerCase();
+  results.innerHTML='';
+  if(!q){results.classList.remove('show');return}
+  const matches=countries.filter(c=>c.toLowerCase().includes(q)).slice(0,30);
+  if(!matches.length){results.innerHTML='<div class="result">No country found.</div>'}
+  else matches.forEach(c=>{
+    const d=document.createElement('div');d.className='result';d.textContent=c;
+    d.onclick=()=>{selected.textContent='Selected country: '+c;vCountry.value=c;input.value=c;results.classList.remove('show');document.getElementById('visa').scrollIntoView({behavior:'smooth'});};
+    results.appendChild(d);
+  });
+  results.classList.add('show');
+}
+input.addEventListener('input',showResults);
+document.addEventListener('click',e=>{if(!e.target.closest('.country-search')&&!e.target.closest('#countryResults'))results.classList.remove('show')});
+
+function encode(s){return encodeURIComponent(s||'')}
+function sendWhatsApp(number,text){window.open('https://wa.me/'+number+'?text='+encodeURIComponent(text),'_blank')}
+
+document.getElementById('visaForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const msg=`Hello GALTA Travel & Logistic Agency,
+
+VISA APPLICATION
+Full Name: ${document.getElementById('vName').value}
+Passport Number: ${document.getElementById('vPassport').value}
+Nationality: ${document.getElementById('vNationality').value}
+Country Applying For: ${document.getElementById('vCountry').value}
+Phone: ${document.getElementById('vPhone').value}
+Email: ${document.getElementById('vEmail').value}
+Additional Information: ${document.getElementById('vMessage').value}`;
+  sendWhatsApp(document.getElementById('vWhatsapp').value,msg);
+});
+
+document.getElementById('flightForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const msg=`Hello GALTA Travel & Logistic Agency,
+
+FLIGHT BOOKING REQUEST
+Departure: ${document.getElementById('fDeparture').value}
+Destination: ${document.getElementById('fDestination').value}
+Departure Date: ${document.getElementById('fDate').value}
+Return Date: ${document.getElementById('fReturn').value || 'One way'}
+Passengers: ${document.getElementById('fPassengers').value}
+Cabin Class: ${document.getElementById('fCabin').value}
+Phone: ${document.getElementById('fPhone').value}`;
+  sendWhatsApp(document.getElementById('fWhatsapp').value,msg);
+});
+
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+</script>
 </body>
 </html>
